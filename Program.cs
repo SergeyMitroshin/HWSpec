@@ -23,7 +23,7 @@ string[] CheckAndCopy (string[]inArray)
                 count++;
             }
         }
-    System.Array.Resize(ref result, (count));
+    Array.Resize(ref result, (count)); //удаляем пустые элементы массива если такие есть
     return result;
 }
 
@@ -35,12 +35,12 @@ if (inArray.GetLength(0) > 0)
       st = "[\"";
         for (int i=0; i<inArray.Length; i++)
            st+= inArray[i]+ "\", \"";       
-     st = st.Substring(0, st.Length - 3) + "]";
+     st = st.Substring(0, st.Length - 3) + "]"; // подрезаем запятую и пробел
      } 
      Console.Write (st);
   }
 
-
+Console.Clear();
 int amount=0;
 while(amount==0)
 {
@@ -52,7 +52,7 @@ while(amount==0)
     }
     catch
     {
-            Console.WriteLine ("Ошибка! Вы ввели не число.");
+            Console.WriteLine ("Ошибка! Вы ввели не число."); //обрабатываем исключение
     }
 }
 string [] inArray = GetFillArray (amount);
@@ -60,4 +60,5 @@ string [] outArray = CheckAndCopy(inArray);
 PrintArray(inArray);
 Console.Write (" -> ");
 PrintArray(outArray);
+Console.WriteLine();
 
