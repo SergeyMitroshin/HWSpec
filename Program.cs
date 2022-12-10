@@ -10,6 +10,23 @@
     return resultArray;
 }
 
+string[] CheckAndCopy (string[]inArray)
+{
+    string[] result = new string[(inArray.GetLength(0))];
+    int count=0;
+    for (int i=0; i<inArray.Length; i++)
+        {
+        
+        if (inArray[i].Length<=3)
+            {
+                result[count]=inArray[i];
+                count++;
+            }
+        }
+    System.Array.Resize(ref result, (count));
+    return result;
+}
+
 void PrintArray (string[] inArray)
 {
 string st = "[]";
@@ -17,14 +34,30 @@ if (inArray.GetLength(0) > 0)
      {
       st = "[\"";
         for (int i=0; i<inArray.Length; i++)
-           st+= inArray[i]+ "\", \"";
-       
+           st+= inArray[i]+ "\", \"";       
      st = st.Substring(0, st.Length - 3) + "]";
      } 
-    Console.WriteLine (st);
+     Console.Write (st);
   }
 
-Console.WriteLine ("Введите количество строк");
-int amount = int.Parse(Console.ReadLine());
+
+int amount=0;
+while(amount==0)
+{
+    try
+    {
+        Console.WriteLine ("Введите количество строк");
+        amount = int.Parse(Console.ReadLine());
+        break;
+    }
+    catch
+    {
+            Console.WriteLine ("Ошибка! Вы ввели не число.");
+    }
+}
 string [] inArray = GetFillArray (amount);
+string [] outArray = CheckAndCopy(inArray);
 PrintArray(inArray);
+Console.Write (" -> ");
+PrintArray(outArray);
+
