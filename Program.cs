@@ -1,4 +1,4 @@
-﻿string[] GetFillArray(int arrayLen)
+﻿string[] GetFillArray(int arrayLen) //Ввод строк массива
 {
     string [] resultArray = new string [arrayLen];
     for (int i=0; i<resultArray.Length; i++)
@@ -6,11 +6,10 @@
        Console.WriteLine ("Введите строку "+i);
        resultArray[i] = Console.ReadLine(); 
     }
-        
     return resultArray;
 }
 
-string[] CheckAndCopy (string[]inArray)
+string[] CheckAndCopy (string[]inArray) //Основной метод программы
 {
     string[] result = new string[(inArray.GetLength(0))];
     int count=0;
@@ -27,7 +26,7 @@ string[] CheckAndCopy (string[]inArray)
     return result;
 }
 
-void PrintArray (string[] inArray)
+void PrintArray (string[] inArray) //Вывод в консоль массива
 {
 string st = "[]";
 if (inArray.GetLength(0) > 0)
